@@ -1,0 +1,111 @@
+#canvas {
+  width: 1000px;
+  height: 700px;
+  background: white;
+  border: 2px solid;
+}
+#legend canvas {
+  width: 15px;
+  height: 10px;
+  margin-right: 0.5em;
+}
+body {
+  background: #eeeeec;
+  font-family: monospace;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 4em;
+  padding: 2em;
+}
+button, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+button {
+  padding: 0 0.5em;
+  width: 5em;
+}
+#runButton {
+  margin-bottom: 2em;
+}
+textarea#initConfig {
+  font-family: monospace;
+  width: 100%;
+}
+.codeInput {
+  font-family: monospace;
+}
+#controlPanel {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.5em;
+}
+#debugPanelDetails {
+  width: 15em;
+  margin-top: 2em;
+}
+#debugPanel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-top: 1em;
+  gap: 1em;
+}
+ul#debugCheckboxes {
+  padding-left: 0;
+  margin: 0;
+}
+ul#debugCheckboxes li {
+  list-style-type: none;
+}
+#debugCheckboxes input + label {
+  margin-left: 0.5em;
+}
+.physics {
+  align-self: flex-end;
+}
+.physics label {
+  margin-right: 0.5em;
+}
+.physics input {
+  width: 5em;
+}
+div#mainButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+div#serverDown {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(255, 0, 0, 0.3);
+    visibility: hidden;
+}
+div#serverDown span {
+    width: 24em;
+    height: 4em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -2em;
+    margin-left: -12em;
+    font-weight: bold;
+}
+#presets {
+    width: 100%;
+}
+#legend {
+  margin-top: 2em;
+  align-self: flex-end;
+}
