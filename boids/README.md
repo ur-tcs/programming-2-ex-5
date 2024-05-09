@@ -28,7 +28,7 @@ For this exercise, you will work on the `BoidLogic.scala`[src/main/scala/boids/B
 The boid world is a rectangle of a given width and height, with an x-y coordinate system with the origin in the top left of the rectangle and y increasing downwards (this is customary for computer graphics).
 
 
->[!NOTE] Check yourself!
+> **Check yourself!**
 > 
 > On a piece of paper, sketch the axes and the points (0, 0), (1, 3), and (2, 2). Compare your answer with the picture below.
 >  <details>
@@ -52,7 +52,7 @@ $$
 \end{align}
 $$
 
-> [!NOTE] Check yourself!
+> **Check yourself!**
 > 
 > In physics class, you have probably seen equations like $v(t) = x'(t)$ or $x(t) = x(0) + \int_{0}^{t}v(t)dt$. Can you see a connection between those and the equations above?
 >  <details>
@@ -73,7 +73,7 @@ s_{max} \qquad \qquad \text{if} ~ ∥ v_{t} + a_{t}  ∥  > s_{max} \\
 \end{cases}
 $$
 
-> [!NOTE] Check yourself!
+> **Check yourself!**
 > 
 > Given a vector $v$ and a magnitude $m$, what is an expression for a vector in the same direction as $v$ but with magnitude $m$? What are its $x$ and $y$ components in terms of the original components?
 > 
@@ -89,7 +89,7 @@ The rules translate to forces as follows.
 1. *Avoidance*: The world has a physical constant called the *avoidance radius* $r_{a}$.  
 Consider a boid A. For all *other* boids B within radius $r_a$ of A, A experiences a force away from B proportional in magnitude to the inverse of its distance from B. Or in mathematical terms, if $F_{A, B}$ ​is the avoidance force experienced by A due to B and $ d < r_a$ is the distance between them, then $∥ F_{A, B} ∥ = \frac{1}{d}$. The total avoidance experienced by A is the sum of all such forces $F_{A, B}$.
 
-> [!NOTE] Check yourself!
+> **Check yourself!**
 > 
 > Suppose boid A is at (5, 5) and boid B is at (9, 8), and suppose that is within the avoidance radius. What is the magnitude of the force experienced by A due to avoidance of B? What are the x and y components of that force?
 > 
@@ -108,7 +108,7 @@ Consider a boid A. For all *other* boids B within radius $r_a$ of A, A experienc
 2. *Cohesion*: The world has a physical constant called the *perception radius* $r_p$, greater than the avoidance radius $r_a$.  
 Each boid experiences a force towards the average position of all other boids within radius $r_p$ of it (those that it can 'perceive'), proportional to its distance from said average position. (The average position is effectively the center of mass.) Or in mathematical terms, let  $x_0$ be the (vector) position of this boid, and $B$ be the set of positions $x$ of *other* boids such that $∥x − x_{0}∥ < r_p$. Then the force is $\frac{\sum_{B}x}{|B|} - x_0$. If $|B| = 0$, i.e., if there are no boids within the perception radius, then the force is zero. 
 
-> [!NOTE] Check yourself!
+> **Check yourself!**
 > 
 > Suppose $x_0$ is (8, 13) and the other boids’ positions are (10, 10), (13, 11), (11, 13), and (14, 9). Suppose that $r_p$ is 6. What is the magnitude of the cohesion force experienced by the boid at $x_0$ ? What are the x and y components of that force?
 > 
@@ -123,7 +123,7 @@ Each boid experiences a force towards the average position of all other boids wi
 
 4. *Containment*: If a boid goes beyond an edge of the world, it experiences a unit force in the opposite cardinal direction.
 
-> [!NOTE] Check yourself!
+> **Check yourself!**
 > 
 > Suppose the world has height 100 and width 200. If a boid is at position (-3, 150), what containment force would it experience?
 > 
@@ -162,7 +162,8 @@ If the UI is not already running, e.g. if you are just starting to work on the e
 3. At the SBT prompt, run `run` to start the UI server.
 4. In your browser, go to `localhost:8080/`.
 
->[!NOTE] Check yourself!
+> **Check yourself!**
+>
 > Try it now! The UI shows your simulation in blue and the reference solution in green. **Your blue boid will not move**, since you haven’t implemented anything yet. The reference solution is available only because a preset initial configuration is selected by default. If you change the configuration, e.g. the initial position of the boid, the reference solution will disappear. 
 
 If the UI is already running, and you have made some changes to the code, then you have to restart it to see your changes as follows:
@@ -208,7 +209,8 @@ Now consider only the avoidance rule. Assume that you are in the middle of a sim
 
 Remember that in `tickBoid` in the previous section, you ignored acceleration because it was zero. But now that you’ve implemented the avoidance rule, this will no longer be the case. How should you incorporate acceleration into your `tickBoid` function?
 
->[!NOTE] Check yourself!
+> **Check yourself!**
+> 
 > Take a moment to check your work. If two boids are heading straight towards each other, initially outside the avoidance radius, what should happen? **Write down your prediction**. Compare it with the `twoBoidsAvoidanceX` test case in the UI.
 
 >[!NOTE]
