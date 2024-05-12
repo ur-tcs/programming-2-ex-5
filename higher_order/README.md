@@ -4,6 +4,8 @@ In this exercise, you'll start by revisiting exercise 2's questions, and search 
 
 As before, exercises or questions marked ⭐️ are the most important, and 🔥 are the most challenging. Questions marked ☁️ are not directly relevant to the class; they just provide additional directions to think about if you are interested. Questions marked 🔜 are useful to prepare for future lectures.
 
+__Your are allowed to copy/clone/fork this repository, but not to share solutions of the exercise in any public repository or web page.__
+
 ## Higher-order functions on lists and trees ⭐️
 
 Many of you noted that we asked to write very similar code many, many times in exercise 2. Let’s explore this observation in more detail.
