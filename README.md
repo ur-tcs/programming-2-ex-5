@@ -1,6 +1,6 @@
 # Programming 2 - Exercise 5 : Higher Order functions and Boids
 
-In this exercise, you'll start by revisiting exercise 2's questions, and search for ways to leverage the power of higher-order functions to write shorter, simpler code. Then you'll become familiar with the notion of “functions as values”. You’ll store functions in `val`s, combine them, make functions that make functions that make functions, etc. 
+In this exercise, you'll start by revisiting exercise 2's questions, and search for ways to leverage the power of higher-order functions to write shorter, simpler code. Then you'll become familiar with the notion of “functions as values”. You’ll store functions in `val`s, combine them, write functions that construct functions that construct functions, etc. 
 
 In the second part of this exercises, you will be writing a simulation of a flock of boids 🐦. 
 
