@@ -11,7 +11,7 @@ __Your are allowed to copy/clone/fork this repository, but not to share solution
 Many of you noted that we asked to write very similar code many, many times in exercise 2. Let’s explore this observation in more detail.
 
 ### Part 1: Observation ⭐️
-Let’s look at five categories of functions, each illustrated by a pair of recursive functions from the `ExList` file of exercise 2 (also available [here](hof-index-cards.pdf) and in [listOps.scala](src/main/scala/listOps.scala)). 
+Let’s look at five categories of functions, each illustrated by a pair of recursive functions from the `ExList` file of exercise 2 (also available [here](hof-index-cards.pdf) and in [listOps.scala](src/main/scala/hofs/listOps.scala)). 
 
 * `sum` and `product` (we’ll call this pair “`associative`”)
 * `increment` and `capAtZero` (we’ll call this pair “`map`”)
