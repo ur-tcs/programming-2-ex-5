@@ -1,6 +1,6 @@
 package boids
 
-import cs214.*
+import p2.*
 
 class BoidTest extends munit.FunSuite:
 

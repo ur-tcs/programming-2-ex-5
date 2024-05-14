@@ -1,7 +1,7 @@
 package boids
 
 import munit.Assertions.*
-import cs214.*
+import p2.*
 import scala.annotation.targetName
 
 val DELTA = 0.005f

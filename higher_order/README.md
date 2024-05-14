@@ -237,6 +237,7 @@ def exists(p: Int => Boolean)(l: IntList): Boolean =
     else l.head < 0 || anyNegative(l.tail)
 ```
   2. The two implementations provided above use if with a constant branch (`if … then true else … and if … then false else …`). Can you simplify them to eliminate the `if`s?
+  
 ```Scala 
 def forallNoIf(p: Int => Boolean)(l: IntList): Boolean =
   ???
@@ -265,6 +266,7 @@ Which one of these operations make sense for functions? Do they make sense of al
 
 <details>
 <summary> Hint </summary>
+
 Consider concrete examples: if I have two functions `isOdd` and `isGreaterThan5`, how can I combine them? What operators can I apply to their results?
 
 How about two functions $f: x \mapsto x + 1$ and $g: x \mapsto x²$? The answer should be a bit different from the Boolean case. Why? Consider the argument and return types.
@@ -272,12 +274,14 @@ How about two functions $f: x \mapsto x + 1$ and $g: x \mapsto x²$? The answer 
 
 <details>
 <summary> Hint </summary>
+
 Take time to think about what `==` may mean for functions. If we define equality as $f(x) = g(x)$ for all $x$, then could you write a program that checks whether two functions are equal? How long would that program run for?
 </details><br/>
 
 2. Can you think of operations that make sense for functions, but not for the other types you know?
 <details>
 <summary> Hint </summary>
+
 Think again about $f: x \mapsto x + 1$ and $g: x \mapsto x²$. I can add or multiply their results, of course, but what else can I do with them?
 
 Then think about logical negation (not), `isEven`, and `isOdd`. Can I define on in terms of the other two?

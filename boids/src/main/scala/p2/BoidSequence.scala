@@ -54,14 +54,14 @@ trait BoidSequence:
       case BoidNil()            => BoidNil()
       case BoidCons(head, tail) => BoidCons(f(head), tail.mapBoid(f))
 
-  /** Builds a new sequence of boids by applying the given function `f` to each
+  /** Builds a new sequence of Floats by applying the given function `f` to each
     * boid in the sequence.
     *
     * @param f
     *   the function to apply to each boid
     *
     * @return
-    *   a new sequence of boids resulting from the application of the given
+    *   a new sequence of Float resulting from the application of the given
     *   function `f` to each boid in the sequence
     */
   def mapFloat(f: Boid => Float): FloatSequence =
@@ -69,14 +69,14 @@ trait BoidSequence:
       case BoidNil()            => FloatNil()
       case BoidCons(head, tail) => FloatCons(f(head), tail.mapFloat(f))
 
-  /** Builds a new sequence of boids by applying the given function `f` to each
+  /** Builds a new sequence of vectors by applying the given function `f` to each
     * boid in the sequence.
     *
     * @param f
     *   the function to apply to each boid
     *
     * @return
-    *   a new sequence of boids resulting from the application of the given
+    *   a new sequence of vectors resulting from the application of the given
     *   function `f` to each boid in the sequence
     */
   def mapVector2(f: Boid => Vector2): Vector2Sequence =
