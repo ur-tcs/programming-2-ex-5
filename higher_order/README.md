@@ -225,9 +225,6 @@ def exists(p: Int => Boolean)(l: IntList): Boolean =
 ```
   1. Rewrite `allEven` and `anyNegative` using `forall`/`exists`.
 
-<details>
-<summary> Solution </summary>
-
 ```Scala 
   def allEven(l: IntList): Boolean =
     if l.isEmpty then true
@@ -237,8 +234,6 @@ def exists(p: Int => Boolean)(l: IntList): Boolean =
     if l.isEmpty then false
     else l.head < 0 || anyNegative(l.tail)
 ```
-</details><br/>
-
   2. The two implementations provided above use if with a constant branch (`if … then true else … and if … then false else …`). Can you simplify them to eliminate the `if`s?
   
 ```Scala 
