@@ -71,9 +71,17 @@ def exists(p: Int => Boolean)(l: IntList): Boolean =
   else p(l.head) || exists(p)(l.tail)
 
 def allEven(l: IntList): Boolean =
-  ???
+    if l.isEmpty then true
+    else (l.head % 2 == 0) && allEven(l.tail)
 
 def anyNegative(l: IntList): Boolean =
+  if l.isEmpty then false
+  else l.head < 0 || anyNegative(l.tail)
+
+def allEven2(l: IntList): Boolean =
+  ???
+
+def anyNegative2(l: IntList): Boolean =
   ???
 
 def forallNoIf(p: Int => Boolean)(l: IntList): Boolean =
