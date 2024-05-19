@@ -30,7 +30,7 @@ Let’s see how well the patterns that you have found generalize. You should hav
 <details>
 <summary> Hint </summary>
 
-In particular, you may decide that `allEven`/`allPositiveOrZero` and `anyOdd`/`anyNegative` should be their own categories. That’s fine!
+In particular, you may decide that `allEven`/`allPositiveOrZero`/`isSubset` and `anyOdd`/`anyNegative`/`contains` should be their own categories. That’s fine!
 
 </details><br/>
 
@@ -75,7 +75,7 @@ def headHasProperty(p: Int => Boolean, l: IntList): Boolean =
   !l.isEmpty && p(l.head)
 ```
 
-Now, use headHasProperty to refactor (i.e. rewrite in a more succinct way) the functions `headIsEven` and `headIsPositive`:
+Now, use `headHasProperty` to refactor (i.e. rewrite in a more succinct way) the functions `headIsEven` and `headIsPositive`:
 
 <details>
 <summary> Solution </summary>
@@ -83,6 +83,7 @@ Now, use headHasProperty to refactor (i.e. rewrite in a more succinct way) the f
 ```Scala
 def headIsEven1(l: IntList): Boolean =
   headHasProperty(i => i % 2 == 0, l)
+
 def headIsPositive1(l: IntList): Boolean =
   headHasProperty(i => i > 0, l)
 ```
@@ -104,11 +105,11 @@ def IncrementDeuxcrement(x: Int) =
 
 What parts do they have in common? What parts are different?
 
-Write a single function `ConstructTwo` that abstracts away the common parts of the three functions above, and rewrite all three functions to use it:
+Write a single function `ConstructTwo` that abstracts away the common parts of the three functions above, and rewrite all three functions to use it. Note that this function returns another function, which takes an `Int` as a parameter. Can you write it in a way so it returns a single `IntList` instead?
 
 ```Scala
 def ConstructTwo(f: Int => Int, g: Int => Int): Int => IntList =
-  ???
+  (x: Int) => ???
 
 val DoubleTriple2 = ???
 val DivideTrivide2 = ???
@@ -135,9 +136,9 @@ The general functions that you come up with will need additional parameters, jus
 
 1. Let’s pick the “associative” category.
 2. There are two differences:
-   * The base case (0 vs 1)
-   * The recursive case (+ vs *)
-3. We isolate the + and * into `val` functions, and the 0 and 1 into simple `vals`: 
+   * The base case (`0` vs `1`)
+   * The recursive case (`+` vs `*`)
+3. We isolate the `+` and `*` into `val` functions, and the 0 and 1 into simple `vals`: 
    * `l.head + sum(list.tail)` becomes `f(l.head, sum(list.tail))`, where `f` is `(x, y) => x + y`.
    * `l.head * product(list.tail)` becomes `f(l.head, product(list.tail))` where `f` is `((x, y) => x * y)`.
  The result is:
@@ -157,26 +158,23 @@ The general functions that you come up with will need additional parameters, jus
   ```
 4. Finally, we extract `base` and `f` into parameters:
   ```Scala
-  def sp(l: IntList, base: Int, f: (Int, Int) => Int): Int =
+  def associative(l: IntList, base: Int, f: (Int, Int) => Int): Int =
     if l.isEmpty then base
-    else f(l.head, sp(l.tail, base, f))
+    else f(l.head, associative(l.tail, base, f))
 
   def sumDef(l: IntList): Int =
-    sp(l, 0, (x, y) => x + y)
+    associative(l, 0, (x, y) => x + y)
 
   def productDef(l: IntList): Int =
-    sp(l, 1, (x, y) => x * y)
+    associative(l, 1, (x, y) => x * y)
   ```
-  Alternatively, we could also *curry* the last argument of sp to make the definitions of `sum` and `product` more succinct:
+  Alternatively, we could also *curry* the last argument of `associative` to make the definitions of `sum` and `product` more succinct:
   ```Scala
-  def spCurried(base: Int, f: (Int, Int) => Int): IntList => Int =
-  def sp(l: IntList): Int =
-    if l.isEmpty then base
-    else f(l.head, sp(l.tail))
-  (l: IntList) => sp(l)
+  def associativeCurried(base: Int, f: (Int, Int) => Int)(l: IntList): Int =
+    if l.isEmpty then base else f(l.head, associativeCurried(base, f)(l.tail))
 
-  val sumVal = spCurried(0, (x, y) => x + y)
-  val productVal = spCurried(1, (x, y) => x * y)
+  val sumVal = associativeCurried(0, (x, y) => x + y)
+  val productVal = associativeCurried(1, (x, y) => x * y)
   ```
 
 Your turn! Once you get used to it, you will find that almost all of last week’s functions can be succinctly reimplemented.
@@ -227,6 +225,9 @@ def exists(p: Int => Boolean)(l: IntList): Boolean =
 ```
   1. Rewrite `allEven` and `anyNegative` using `forall`/`exists`.
 
+<details>
+<summary> Solution </summary>
+
 ```Scala 
   def allEven(l: IntList): Boolean =
     if l.isEmpty then true
@@ -236,6 +237,8 @@ def exists(p: Int => Boolean)(l: IntList): Boolean =
     if l.isEmpty then false
     else l.head < 0 || anyNegative(l.tail)
 ```
+</details><br/>
+
   2. The two implementations provided above use if with a constant branch (`if … then true else … and if … then false else …`). Can you simplify them to eliminate the `if`s?
   
 ```Scala 

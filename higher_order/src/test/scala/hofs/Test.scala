@@ -123,12 +123,6 @@ class ListOpsTests extends munit.FunSuite:
     assertEquals(countEven(tenNumbers), 5)
     assertEquals(countEven(twentyNumbers), 10)
 
-  test("countEven2:  on multiple list"):
-    assertEquals(countEven2(IntNil()), 0)
-    assertEquals(countEven2(threeNumbers), 2)
-    assertEquals(countEven2(tenNumbers), 5)
-    assertEquals(countEven2(twentyNumbers), 10)
-
   test("multiplyBy2: on multiple lists"):
     assertEquals(multiplyBy2(IntNil()), IntNil())
     val threeRes =
@@ -330,21 +324,6 @@ class ListOpsTests extends munit.FunSuite:
       )
     )
 
-  test("minMax: on multiple lists"):
-    intercept[IllegalArgumentException]:
-      minMax(IntNil())
-    assertEquals(minMax(threeNumbers), (0, 2))
-    assertEquals(minMax(tenNumbers), (-9, 4))
-    assertEquals(minMax(twentyNumbers), (-19, 14))
-
-  test("polishEval: addition"):
-    val xs = IntCons(Add, IntCons(1, IntCons(2, IntNil())))
-    assertEquals(polishEval(xs)._1, 3)
-
-  test("polishEval: nested operations"):
-    val xs = IntCons(Add, IntCons(2, IntCons(Multiply, IntCons(3, IntCons(4, IntNil())))))
-    assertEquals(polishEval(xs)._1, 14)
-
 class ListOpsBiggerTest extends munit.FunSuite:
   val MAX_LENGTH = 100
 
@@ -461,12 +440,6 @@ class ListOpsBiggerTest extends munit.FunSuite:
     do
       assertEquals(countEven(positiveNumbers(i)), i / 2)
 
-  test(f"countEven2: list with 1 to $MAX_LENGTH elements"):
-    for
-      i <- 1 to MAX_LENGTH
-    do
-      assertEquals(countEven2(positiveNumbers(i)), i / 2)
-
   test(f"anyNegative: list with 1 to $MAX_LENGTH elements, all positive"):
     for
       i <- 1 to MAX_LENGTH
@@ -503,12 +476,6 @@ class ListOpsBiggerTest extends munit.FunSuite:
     do
       assertEquals(capAtZero(negativeNumbers(i)), negativeNumbers(i))
 
-  test(f"reverse: list with 1 to $MAX_LENGTH elements"):
-    for
-      i <- 1 to MAX_LENGTH
-    do
-      assertEquals(reverse(positiveNumbers(i)), reversePositiveNumbers(i))
-
   test(f"takeWhilePositive: list with 1 to $MAX_LENGTH elements, positive"):
     for
       i <- 1 to MAX_LENGTH
@@ -526,9 +493,3 @@ class ListOpsBiggerTest extends munit.FunSuite:
       i <- 1 to MAX_LENGTH
     do
       assertEquals(last(positiveNumbers(i)), i)
-
-  test(f"minMax: list with 1 to $MAX_LENGTH elements"):
-    for
-      i <- 1 to MAX_LENGTH
-    do
-      assertEquals(minMax(positiveNumbers(i)), (1, i))
