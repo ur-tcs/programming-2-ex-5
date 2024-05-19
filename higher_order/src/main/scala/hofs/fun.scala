@@ -238,7 +238,7 @@ def andLifter(f: Int => Boolean, g: Int => Boolean): Int => Boolean =
 def notLifter(f: Int => Boolean): Int => Boolean =
   n => !f(n)
 
-val isCS214StudentVal = ???
+val isP2StudentVal = ???
 
 def isCourseStudentDefPartlyCurried(all: IntList, staff: IntList): Int => Boolean =
   ???

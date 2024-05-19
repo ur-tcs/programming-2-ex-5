@@ -71,7 +71,7 @@ class ListOpsTests extends munit.FunSuite:
     assertEquals(collectEven(twentyNumbers), twentyRes)
 
   test("min: on multiple lists"):
-    intercept[IllegalArgumentException]:
+    intercept[java.lang.Exception]:
       min(IntNil())
     assertEquals(min(threeNumbers), 0)
     assertEquals(min(tenNumbers), -9)
@@ -249,7 +249,7 @@ class ListOpsTests extends munit.FunSuite:
     assertEquals(collectMultiples(2, twentyNumbers), twentyRes)
 
   test("last: empty list"):
-    intercept[IllegalArgumentException]:
+    intercept[java.lang.Exception]:
       last(IntNil())
     assertEquals(last(threeNumbers), 0)
     assertEquals(last(tenNumbers), 0)

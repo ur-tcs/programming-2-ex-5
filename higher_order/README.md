@@ -352,6 +352,7 @@ def adder(f: Int => Double, g: Int => Double): Int => Double =
 
 <details>
 <summary> Hint </summary>
+
 The result should be such that `adder(f, g)(x) == f(x) + g(x)`.
 </details><br/>
 
@@ -395,6 +396,7 @@ def meet(f: Int => Boolean, g: Int => Boolean): (Int => Boolean) =
 
 <details>
 <summary> Hint </summary>
+
 This function should be such that `meet(f, g)(x) == f(x) && g(x)`.
 </details><br/>
 
@@ -429,6 +431,7 @@ def isGreaterThanCurriedDef(x: Int)(y: Int): Boolean =
 //     isGreaterThan(x, y)
 //       == isGreaterThanAnon(x, y)
 //       == isGreaterThanCurried(x)(y)
+//       == isGreaterThanCurriedDef(x)(y)
 ```
 
 1. `incrHeadByX`
@@ -439,10 +442,10 @@ def incrHeadByXBasic(x: Int, l: IntList): IntList =
   else IntCons(l.head + x, l.tail)
 
 val incrHeadByXAnon: (Int, IntList) => IntList =
-  TODO
+  ???
 
 val incrHeadByXCurried: Int => IntList => IntList =
-  TODO
+  ???
 
 def incrHeadByXCurriedDef(x: Int)(l: IntList): IntList =
   ???
@@ -521,7 +524,7 @@ def isRegisteredForP2Def(id: Int): Boolean = ???
 
 val isRegisteredForP2Val = ???
 ```
-2. Write a function `isP2Student` that checks whether a id number corresponds to a registered student. Write two versions: one using `containsBasic`, as a def; and one using `containsCurried`, `notLifter`, and `andLifter`, as a val. For the `val`, as before, do not create an anonymous function: the definition should have no mention of a id number variable.
+2. Write a function `isP2Student` that checks whether a id number corresponds to a registered student. Write two versions: one using `containsBasic`, as a def; and one using `containsCurried`, `notLifter`, and `andLifter`, as a val. For the `val`, as before, do not create an anonymous function: the definition should have no mention of an id number variable.
 
 ```Scala
 def isP2StudentDef(id: Int): Boolean =
@@ -535,7 +538,7 @@ def andLifter(f: Int => Boolean, g: Int => Boolean): Int => Boolean =
 def notLifter(f: Int => Boolean): Int => Boolean =
   n => !f(n)
 
-val isCS214StudentVal = ???
+val isP2StudentVal = ???
 ```
 The val style is often called “point-free style”, which means using only function combinators like `andLifter` and `notLifter` instead of explicit parameter names.
 
@@ -599,7 +602,7 @@ val g = (x: Int) => /* 🔥 */ /* assuming x > 0 */
 
 2. Write a function `fixedPoint` that takes a function `f` and an integer `x`, checks whether `x` is already a fixpoint of `f`, and then looks for a fixed point by repeatedly calling `f`, until it converges.
 ```Scala
-  def fixedPoint(f: Int => Int, start: Int): Int =
+  def fixedPoint(f: Int => Int, x: Int): Int =
     ???
 ``` 
 For example, `fixedPoint(((x: Int) => x / 2 + 5), 20)` will call itself recursively with `x = 15` (`20 / 2 + 5`), then `x = 12` (`15 / 2 + 5`), then `x = 11` (`12 / 2 + 5`), then `x = 10` (`11 / 2 + 5`).
