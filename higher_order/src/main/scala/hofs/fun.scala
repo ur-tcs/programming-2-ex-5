@@ -195,7 +195,7 @@ def addToFrontCurriedDef(x: Int)(y: Int)(l: IntList): IntList = ???
 /* contains */
 
 def containsBasic(l: IntList, n: Int): Boolean =
-  !l.isEmpty && (n == l.head || contains(l.tail, n))
+  !l.isEmpty && (n == l.head || containsBasic(l.tail, n))
 
 def containsAnon: (IntList, Int) => Boolean = ???
 
