@@ -89,7 +89,7 @@ $$
 The rules translate to forces as follows.
 
 1. *Avoidance*: The world has a physical constant called the *avoidance radius* $r_{a}$.  
-Consider a boid A. For all *other* boids B within radius $r_a$ of A, A experiences a force away from B proportional in magnitude to the inverse of its distance from B. Or in mathematical terms, if $F_{A, B}$ ​is the avoidance force experienced by A due to B and $ d < r_a$ is the distance between them, then $∥ F_{A, B} ∥ = \frac{1}{d}$. The total avoidance experienced by A is the sum of all such forces $F_{A, B}$.
+Consider a boid A. For all *other* boids B within radius $r_a$ of A, A experiences a force away from B proportional in magnitude to the inverse of its distance from B. Or in mathematical terms, if $F_{A, B}$ ​is the avoidance force experienced by A due to B and $d < r_a$ is the distance between them, then $∥ F_{A, B} ∥ = \frac{1}{d}$. The total avoidance experienced by A is the sum of all such forces $F_{A, B}$.
 
 > **Check yourself!**
 > 
