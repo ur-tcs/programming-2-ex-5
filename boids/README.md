@@ -22,7 +22,7 @@ In this exercise, you will be writing a simulation of a flock of boids. A boid i
 
 
 ## Logistics
-For this exercise, you will work on the `BoidLogic.scala`[src/main/scala/boids/BoidsLogic.scala] file. If you have issues with your setup (Scala installation, IDE, using the terminal, etc.), please call us. 
+For this exercise, you will work on the [`BoidLogic.scala`](src/main/scala/boids/BoidsLogic.scala) file. If you have issues with your setup (Scala installation, IDE, using the terminal, etc.), please call us. 
 
 __As always, your are allowed to copy/clone/fork this repository, but not to share solutions of the exercise in any public repository or web page.__
 
